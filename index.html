@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+    <h1>MATH POP QUIZ!</h1>
+    <p>Timer: <span id="timer"></span></p>
+    
+    <p>1+1=?</p>
+	<input type="radio" name= "q1" value="correct1">2<br> 
+	<input type="radio" name= "q1" value="incorrect"> 3<br>
+	<input type="radio" name= "q1" value="incorrect"> 4<br>  
+    <input type="radio" name= "q1" value="incorrect"> 1<br> 
+
+    <p>4/1=?</p>
+	<input type="radio" name= "q2" value="incorrect">2<br> 
+	<input type="radio" name= "q2" value="incorrect"> 3<br>
+	<input type="radio" name= "q2" value="correct2"> 4<br>  
+    <input type="radio" name= "q2" value="incorrect"> 1<br> 
+
+    <p>2*2=?</p>
+	<input type="radio" name= "q3" value="incorrect">2<br> 
+	<input type="radio" name= "q3" value="incorrect"> 3<br>
+	<input type="radio" name= "q3" value="correct3"> 4<br>  
+    <input type="radio" name= "q3" value="incorrect"> 1<br> 
+
+    <p>5-2=?</p>
+	<input type="radio" name= "q4" value="incorrect">2<br> 
+	<input type="radio" name= "q4" value="correct4"> 3<br>
+	<input type="radio" name= "q4" value="incorrect"> 4<br>  
+    <input type="radio" name= "q4" value="incorrect"> 1<br> 
+
+	<input type="submit" value="Submit">
+</form>
+
+<p>
+    Correct Answers:<span id="correct"></span>
+    
+</p>
+
+<p>
+    Wrong Answers:<span id="wrong"></span>
+</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var num = 60;
+    $("timer").text(num);
+
+    function decrease(){
+        if (num > 0){
+        num --;
+        }
+        $("timer").text(num);
+        if (num == 0){
+        clearInterval(timer);
+        $("input[type='submit']").attr("disabled", true);
+        $("#content").text("time out")
+    }};
+    var timer = setInterval(decrease, 1*1000);
+
+    
+
+    $("input[type='submit']").on("click", function(){
+        var u1 = $("input[type='q1']:checked").val();
+        var u2 = $("input[type='q2']:checked").val();
+        var u3 = $("input[type='q3']:checked").val();
+        var u4 = $("input[type='q4']:checked").val();
+        var correctAns = 0;
+        var wrongAns = 0;
+
+        if (u1 == "correct1"){
+            correctAns++; 
+        }else wrongAns++;
+        correctAns;
+        wrongAns;
+        $("#correct").text(correctAns);
+        $("#wrong").text(wrongAns);
+
+        if (u2 == "correct2"){
+            correctAns++; 
+        }else wrongAns++;
+        correctAns;
+        wrongAns;
+        $("#correct").text(correctAns);
+        $("#wrong").text(wrongAns);
+
+        if (u3 == "correct3"){
+            correctAns++; 
+        }else wrongAns++;
+        correctAns;
+        wrongAns;
+        $("#correct").text(correctAns);
+        $("#wrong").text(wrongAns);
+
+        if (u4 == "correct4"){
+            correctAns++; 
+        }else wrongAns++;
+        correctAns;
+        wrongAns;
+        $("#correct").text(correctAns);
+        $("#wrong").text(wrongAns);
+
+        $("input[type='submit']").attr("disabled", true);
+        clearInterval(timer);
+        event.preventDefault();
+    });
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
